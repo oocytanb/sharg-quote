@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+  echo '__EMPTY__'
+else
+  str="${1}"
+  shift 1
+  for a in "$@"
+  do
+    str="${str}, ${a}"
+  done
+  echo "[${str}]"
+fi

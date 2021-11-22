@@ -1,0 +1,50 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: ['16']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install pnpm
+        run: |
+          npm i -g pnpm@6
+          pnpm -v
+
+      - name: Install packages
+        run: pnpm i
+
+      - name: Build & Test (bash)
+        shell: bash
+        run: |
+          pnpm run build_c
+
+      - name: Build & Test (pwsh)
+        shell: pwsh
+        run: |
+          pnpm run build_c
+
+      - name: Build & Test (cmd)
+        if: matrix.os == 'windows-latest'
+        shell: cmd
+        run: |
+          pnpm run build_c
