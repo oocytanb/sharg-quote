@@ -5,6 +5,7 @@
     "noImplicitReturns": true,
     "target": "ES2020",
     "module": "node12",
+    "moduleResolution": "node12",
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "sourceMap": true,

@@ -14,7 +14,7 @@ npm i github:oocytanb/sharg-quote
 
 ### POSIX shell
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { sh } from 'sharg-quote';
 
@@ -32,7 +32,7 @@ const r = spawnSync(cmd, args, {
 });
 ```
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { sh } from 'sharg-quote';
 
@@ -52,7 +52,7 @@ const r = spawnSync(cmd, args, {
 
 ### Windows pwsh
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { pwsh } from 'sharg-quote';
 
@@ -70,7 +70,7 @@ const r = spawnSync(cmd, args, {
 });
 ```
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { pwsh } from 'sharg-quote';
 
@@ -85,7 +85,7 @@ const r = spawnSync(cmd, args, {
 
 ### Windows cmd.exe
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { wcmd } from 'sharg-quote';
 
@@ -103,7 +103,7 @@ const r = spawnSync(cmd, args, {
 });
 ```
 
-```typescript
+```javascript
 import { spawnSync } from 'child_process';
 import { wcmd } from 'sharg-quote';
 
