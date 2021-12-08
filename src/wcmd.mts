@@ -40,7 +40,7 @@ export function customQuote(
  * Quotes a string for using in cmd.exe.
  *
  * LF "\n" is replaced by SPACE " " since cmd.exe truncates it.
- * Also note that CR "\r" is ignored by cmd.exe.
+ * Also note that CR "\r" is omitted in cmd.exe.
  *
  * @see [cmd.exe]{@link https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd}
  * @see [CreateProcessW]{@link https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw}

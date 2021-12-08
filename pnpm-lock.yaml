@@ -7,8 +7,10 @@ specifiers:
   '@typescript-eslint/parser': ^5.6.0
   ava: ^4.0.0-rc.1
   c8: ^7.10.0
+  cp-file: ^9.1.0
   eslint: ^8.4.1
   eslint-config-prettier: ^8.3.0
+  globby: ^12.0.2
   prettier: ^2.5.1
   rimraf: ^3.0.2
   semver: ^7.3.5
@@ -22,8 +24,10 @@ devDependencies:
   '@typescript-eslint/parser': 5.6.0_6f254c9fb70bad342c88bf1cb0280077
   ava: 4.0.0-rc.1
   c8: 7.10.0
+  cp-file: 9.1.0
   eslint: 8.4.1
   eslint-config-prettier: 8.3.0_eslint@8.4.1
+  globby: 12.0.2
   prettier: 2.5.1
   rimraf: 3.0.2
   semver: 7.3.5
@@ -575,6 +579,16 @@ packages:
   /convert-to-spaces/1.0.2:
     resolution: {integrity: sha1-fj5Iu+bZl7FBfdyihoIEtNPYVxU=}
     engines: {node: '>= 4'}
+    dev: true
+
+  /cp-file/9.1.0:
+    resolution: {integrity: sha512-3scnzFj/94eb7y4wyXRWwvzLFaQp87yyfTnChIjlfYrVqp5lVO3E2hIJMeQIltUT0K2ZAB3An1qXcBmwGyvuwA==}
+    engines: {node: '>=10'}
+    dependencies:
+      graceful-fs: 4.2.8
+      make-dir: 3.1.0
+      nested-error-stacks: 2.1.0
+      p-event: 4.2.0
     dev: true
 
   /cross-spawn/7.0.3:
@@ -1292,6 +1306,10 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
+    dev: true
+
+  /nested-error-stacks/2.1.0:
+    resolution: {integrity: sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==}
     dev: true
 
   /nofilter/3.1.0:

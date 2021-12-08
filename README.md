@@ -117,3 +117,7 @@ const r = spawnSync(cmd, args, {
 ```
 
 ### [More examples](./test/)
+
+## Libraries
+
+[See dependencies](./package.json)

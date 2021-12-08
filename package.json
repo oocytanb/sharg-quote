@@ -30,15 +30,16 @@
     "src"
   ],
   "scripts": {
-    "lint:fix": "prettier --write ./src/**/*.mts ./test/**/*.ts --parser=typescript",
-    "lint": "prettier --check ./src/**/*.mts ./test/**/*.ts --parser=typescript",
+    "lint:fix": "prettier --write ./src/**/*.mts ./test/**/*.ts --parser=typescript && prettier --write ./build_script/**/*.mjs && eslint --ext mjs ./build_script",
+    "lint": "prettier --check ./src/**/*.mts ./test/**/*.ts --parser=typescript && prettier --check ./build_script/**/*.mjs && eslint --fix --ext mjs ./build_script",
     "test:compile": "tsc --project tsconfig.test.json",
     "test": "ava",
     "test_c": "npm run test:compile && npm run coverage",
     "coverage:clean": "rimraf coverage",
     "coverage": "c8 npm run test",
     "clean": "rimraf ./lib && rimraf ./build && npm run coverage:clean",
-    "build": "npm run lint:fix && npm run clean && tsc && npm run test:compile",
+    "build:generate_dts": "node ./build_script/generate_dts.mjs",
+    "build": "npm run lint:fix && npm run clean && tsc && npm run build:generate_dts && npm run test:compile",
     "build_c": "npm run build && npm run coverage"
   },
   "devDependencies": {
@@ -48,8 +49,10 @@
     "@typescript-eslint/parser": "^5.6.0",
     "ava": "^4.0.0-rc.1",
     "c8": "^7.10.0",
+    "cp-file": "^9.1.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
+    "globby": "^12.0.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "semver": "^7.3.5",
