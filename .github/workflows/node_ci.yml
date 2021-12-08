@@ -35,16 +35,20 @@ jobs:
 
       - name: Build & Test (bash)
         shell: bash
-        run: |
-          pnpm run build_c
+        run: pnpm run build_c
 
       - name: Build & Test (pwsh)
         shell: pwsh
-        run: |
-          pnpm run build_c
+        run: pnpm run build_c
 
       - name: Build & Test (cmd)
         if: matrix.os == 'windows-latest'
         shell: cmd
+        run: pnpm run build_c
+
+      - name: Build & Test examples
+        working-directory: example
         run: |
-          pnpm run build_c
+          pnpm i
+          pnpm run build
+          pnpm run test

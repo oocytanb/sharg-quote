@@ -1,6 +1,8 @@
 # sharg-quote
 
-A Node library for shell quoting/escaping.
+[![Node CI](https://github.com/oocytanb/sharg-quote/actions/workflows/node_ci.yml/badge.svg)](https://github.com/oocytanb/sharg-quote/actions/workflows/node_ci.yml)
+
+A Node library for quoting/escaping shell commands.
 
 ## Installation
 
@@ -18,36 +20,40 @@ npm i github:oocytanb/sharg-quote
 import { spawn } from 'child_process';
 import { sh } from 'sharg-quote';
 
-const { quote: q, command: c } = sh;
+function run() {
+  const { quote: q, command: c } = sh;
 
-const [cmd, args] = c([
-  q(`node`),
-  q(`test/res/show_args.mjs`),
-  q(`foo`),
-  q(`bar " ' baz`),
-]);
+  const [cmd, args] = c([
+    q(`node`),
+    q(`test/res/show_args.mjs`),
+    q(`foo`),
+    q(`bar " ' baz`),
+  ]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ```javascript
 import { spawn } from 'child_process';
 import { sh } from 'sharg-quote';
 
-const { quote: q, command: c } = sh;
+function run() {
+  const { quote: q, command: c } = sh;
 
-const [cmd, args] = c([
-  q(`echo`),
-  q(`foo`),
-  q(`bar " ' baz`),
-  '`expr 1 + 2`',
-]);
+  const [cmd, args] = c([
+    q(`echo`),
+    q(`foo`),
+    q(`bar " ' baz`),
+    '`expr 1 + 2`',
+  ]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ### Windows pwsh
@@ -56,31 +62,35 @@ const p = spawn(cmd, args, {
 import { spawn } from 'child_process';
 import { pwsh } from 'sharg-quote';
 
-const { quote: q, wQuote: wq, wCommand: c } = pwsh;
+function run() {
+  const { quote: q, wQuote: wq, wCommand: c } = pwsh;
 
-const [cmd, args] = c([
-  q(`node`),
-  wq(`test/res/show_args.mjs`),
-  wq(`foo`),
-  wq(`bar " ' baz`),
-]);
+  const [cmd, args] = c([
+    q(`node`),
+    wq(`test/res/show_args.mjs`),
+    wq(`foo`),
+    wq(`bar " ' baz`),
+  ]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ```javascript
 import { spawn } from 'child_process';
 import { pwsh } from 'sharg-quote';
 
-const { quote: q, wCommand: c } = pwsh;
+function run() {
+  const { quote: q, wCommand: c } = pwsh;
 
-const [cmd, args] = c([q(`echo`), q(`foo`), q(`bar " ' baz`), `$(1+2)`]);
+  const [cmd, args] = c([q(`echo`), q(`foo`), q(`bar " ' baz`), `$(1+2)`]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ### Windows cmd.exe
@@ -89,31 +99,35 @@ const p = spawn(cmd, args, {
 import { spawn } from 'child_process';
 import { wcmd } from 'sharg-quote';
 
-const { quote: q, wCommand: c } = wcmd;
+function run() {
+  const { quote: q, wCommand: c } = wcmd;
 
-const [cmd, args] = c([
-  q(`node`),
-  q(`test/res/show_args.mjs`),
-  q(`foo`),
-  q(`bar " ' baz`),
-]);
+  const [cmd, args] = c([
+    q(`node`),
+    q(`test/res/show_args.mjs`),
+    q(`foo`),
+    q(`bar " ' baz`),
+  ]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ```javascript
 import { spawn } from 'child_process';
 import { wcmd } from 'sharg-quote';
 
-const { escape: esc, quote: q, wCommand: c } = wcmd;
+function run() {
+  const { escape: esc, quote: q, wCommand: c } = wcmd;
 
-const [cmd, args] = c([q(`echo`), esc(`foo`), esc(`bar " ' baz`), `%OS%`]);
+  const [cmd, args] = c([q(`echo`), esc(`foo`), esc(`bar " ' baz`), `%OS%`]);
 
-const p = spawn(cmd, args, {
-  windowsVerbatimArguments: true,
-});
+  return spawn(cmd, args, {
+    windowsVerbatimArguments: true,
+  });
+}
 ```
 
 ### [More examples](./test/)

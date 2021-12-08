@@ -1,7 +1,7 @@
 {
   "name": "sharg-quote",
   "version": "0.1.0",
-  "description": "A Node library for shell quoting/escaping",
+  "description": "A Node library for quoting/escaping shell commands.",
   "author": {
     "name": "oO",
     "url": "https://github.com/oocytanb"

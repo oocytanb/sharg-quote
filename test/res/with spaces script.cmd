@@ -1,3 +1,5 @@
+@rem SPDX-License-Identifier: MIT
+
 @setlocal ENABLEDELAYEDEXPANSION
 
 @set als=%~1

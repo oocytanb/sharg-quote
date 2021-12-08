@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: MIT
 
 if [ $# -eq 0 ]; then
   echo '__EMPTY__'
