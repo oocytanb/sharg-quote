@@ -73,8 +73,8 @@ function testSpawn(c: CommandBuilder, bc: CommandBuilder) {
   const sc = spawnCommand(spawnOpts);
   const sa = (args: readonly string[]) =>
     sc(c([wq(nodeBin), wq(showArgsFile), ...args]));
-  const tsa = makeConditionalTest(test.serial, contextPred(sn));
-  const tsaNps = makeConditionalTest(test.serial, contextPredNps(sn));
+  const tsa = makeConditionalTest(test, contextPred(sn));
+  const tsaNps = makeConditionalTest(test, contextPredNps(sn));
 
   tsa(`${title} #1`, async (t) => {
     t.is(await sa([]), `__EMPTY__`);
@@ -282,7 +282,7 @@ function testSpawnNest(c: CommandBuilder, nq: (a: string) => string) {
     target: readonly string[],
     expect: string
   ) {
-    const tsa = makeConditionalTest(test.serial, pred);
+    const tsa = makeConditionalTest(test, pred);
     const bc = c([wq(nodeBin), wq(showArgsFile), ...target]);
 
     tsa(`${title} ${tag} #1`, async (t) => {

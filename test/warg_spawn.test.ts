@@ -19,7 +19,7 @@ function testSpawn() {
   const sc = spawnCommand(spawnOpts);
   const sa = (args: readonly string[]) =>
     sc([q(nodeBin), [q(showArgsFile), ...args]]);
-  const tsa = test.serial;
+  const tsa = test;
 
   tsa(`${title} #1`, async (t) => {
     t.is(await sa([]), `__EMPTY__`);

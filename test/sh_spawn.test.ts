@@ -114,9 +114,9 @@ function testSpawn(c: CommandBuilder) {
     sc(c([q(nodeBin), q(showArgsFile), ...args]));
 
   const pred = contextPred(sn);
-  const tsa = makeConditionalTest(test.serial, pred);
+  const tsa = makeConditionalTest(test, pred);
   const tsaNwsl = makeConditionalTest(
-    test.serial,
+    test,
     (ctx: TestContext) =>
       !(isWin && ctx.probeSet?.[sn]?.platform?.includes('linux')) && pred(ctx)
   );
@@ -324,7 +324,7 @@ function testWinPath(c: CommandBuilder) {
   const [sn] = c([`man`]);
   const title = `spawn winPath ${sn} @${platform()}`;
   const sc = spawnCommand(spawnOpts);
-  const tsa = makeConditionalTest(test.serial, contextPred(sn));
+  const tsa = makeConditionalTest(test, contextPred(sn));
 
   tsa(`${title} #54`, async (t) => {
     const ec = c([`cat`, q(np(join(testDataDir, `%OS%`, `qux.txt`)))]);
@@ -351,7 +351,7 @@ function testSpawnNest(c: CommandBuilder, nc: CommandBuilder) {
   const [sn] = c([`man`]);
   const title = `spawn nest ${sn} @${platform()}`;
   const sc = spawnCommand(spawnOpts);
-  const tsa = makeConditionalTest(test.serial, contextPred(sn));
+  const tsa = makeConditionalTest(test, contextPred(sn));
 
   function ntsa(tag: string, target: readonly string[], expect: string) {
     const bc = nc([q(nodeBin), q(showArgsFile), ...target]);

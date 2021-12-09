@@ -65,7 +65,7 @@ test('wcmd', (t) => {
 });
 
 if (isWin) {
-  test.serial('wcmd spawn #1', (t) => {
+  test('wcmd spawn #1', (t) => {
     const { quote: q, wCommand: c } = wcmd;
 
     const [cmd, args] = c([
@@ -82,7 +82,7 @@ if (isWin) {
     t.deepEqual(stdout, Buffer.from(`[foo, bar " ' baz]\n`));
   });
 
-  test.serial('wcmd spawn #2', (t) => {
+  test('wcmd spawn #2', (t) => {
     const { escape: esc, quote: q, wCommand: c } = wcmd;
 
     const [cmd, args] = c([q(`echo`), esc(`foo`), esc(`bar " ' baz`), `%OS%`]);
@@ -108,7 +108,7 @@ test('pwsh', (t) => {
 });
 
 if (isWin) {
-  test.serial('pwsh spawn #1', (t) => {
+  test('pwsh spawn #1', (t) => {
     const { quote: q, wQuote: wq, wCommand: c } = pwsh;
 
     const [cmd, args] = c([
@@ -125,7 +125,7 @@ if (isWin) {
     t.deepEqual(stdout, Buffer.from(`[foo, bar " ' baz]\n`));
   });
 
-  test.serial('pwsh spawn #2', (t) => {
+  test('pwsh spawn #2', (t) => {
     const { quote: q, wCommand: c } = pwsh;
 
     const [cmd, args] = c([q(`echo`), q(`foo`), q(`bar " ' baz`), `$(1+2)`]);
@@ -147,7 +147,7 @@ test('sh', (t) => {
 });
 
 if (!isWin) {
-  test.serial('sh spawn #1', (t) => {
+  test('sh spawn #1', (t) => {
     const { quote: q, command: c } = sh;
 
     const [cmd, args] = c([
@@ -164,7 +164,7 @@ if (!isWin) {
     t.deepEqual(stdout, Buffer.from(`[foo, bar " ' baz]\n`));
   });
 
-  test.serial('sh spawn #2', (t) => {
+  test('sh spawn #2', (t) => {
     const { quote: q, command: c } = sh;
 
     const [cmd, args] = c([
