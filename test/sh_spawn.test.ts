@@ -90,7 +90,7 @@ async function probeVersion(sn: string): Promise<CommandVersionInfo> {
 function testBefore(c: CommandBuilder) {
   const [cn, echoArgs] = c([`echo`, `foo`]);
 
-  test.serial.before(`probe spawn ${cn} @${platform()}`, async (t) => {
+  test.before(`probe spawn ${cn} @${platform()}`, async (t) => {
     try {
       const ver = await probeVersion(cn);
       if (ver.source) {

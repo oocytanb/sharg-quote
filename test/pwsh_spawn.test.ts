@@ -57,7 +57,7 @@ function contextPredNps(sn: string): (ctx: TestContext) => boolean {
 function testBefore(c: CommandBuilder) {
   const [sn, echoArgs] = c([`echo`, `foo`]);
 
-  test.serial.before(`probe spawn ${sn} @${platform()}`, async (t) => {
+  test.before(`probe spawn ${sn} @${platform()}`, async (t) => {
     try {
       await asyncSpawn(sn, echoArgs, spawnOpts);
       t.context.probeSet = { ...t.context.probeSet, [sn]: true };
