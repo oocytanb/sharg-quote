@@ -90,7 +90,7 @@ async function probeVersion(sn: string): Promise<CommandVersionInfo> {
 function testBefore(c: CommandBuilder) {
   const [cn, echoArgs] = c([`echo`, `foo`]);
 
-  test.before(`probe spawn ${cn} @${platform()}`, async (t) => {
+  test.serial.before(`probe spawn ${cn} @${platform()}`, async (t) => {
     try {
       const ver = await probeVersion(cn);
       if (ver.source) {
@@ -114,9 +114,9 @@ function testSpawn(c: CommandBuilder) {
     sc(c([q(nodeBin), q(showArgsFile), ...args]));
 
   const pred = contextPred(sn);
-  const tsa = makeConditionalTest(test, pred);
+  const tsa = makeConditionalTest(test.serial, pred);
   const tsaNwsl = makeConditionalTest(
-    test,
+    test.serial,
     (ctx: TestContext) =>
       !(isWin && ctx.probeSet?.[sn]?.platform?.includes('linux')) && pred(ctx)
   );
@@ -324,7 +324,7 @@ function testWinPath(c: CommandBuilder) {
   const [sn] = c([`man`]);
   const title = `spawn winPath ${sn} @${platform()}`;
   const sc = spawnCommand(spawnOpts);
-  const tsa = makeConditionalTest(test, contextPred(sn));
+  const tsa = makeConditionalTest(test.serial, contextPred(sn));
 
   tsa(`${title} #54`, async (t) => {
     const ec = c([`cat`, q(np(join(testDataDir, `%OS%`, `qux.txt`)))]);
@@ -351,7 +351,7 @@ function testSpawnNest(c: CommandBuilder, nc: CommandBuilder) {
   const [sn] = c([`man`]);
   const title = `spawn nest ${sn} @${platform()}`;
   const sc = spawnCommand(spawnOpts);
-  const tsa = makeConditionalTest(test, contextPred(sn));
+  const tsa = makeConditionalTest(test.serial, contextPred(sn));
 
   function ntsa(tag: string, target: readonly string[], expect: string) {
     const bc = nc([q(nodeBin), q(showArgsFile), ...target]);

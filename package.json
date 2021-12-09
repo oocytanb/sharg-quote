@@ -48,10 +48,8 @@
     "@typescript-eslint/parser": "^5.6.0",
     "ava": "^4.0.0-rc.1",
     "c8": "^7.10.0",
-    "cp-file": "^9.1.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
-    "globby": "^12.0.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "semver": "^7.3.5",
@@ -116,7 +114,6 @@
     "failFast": true,
     "failWithoutAssertions": false,
     "verbose": true,
-    "concurrency": 2,
     "timeout": "1m"
   },
   "c8": {

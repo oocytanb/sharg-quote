@@ -37,7 +37,7 @@ function testSpawn() {
   const sc = spawnCommand(spawnOpts);
   const sa = (args: readonly string[]) =>
     sc(c([q(nodeBin), q(showArgsFile), ...args]));
-  const tsa = test;
+  const tsa = test.serial;
 
   tsa(`${title} #1`, async (t) => {
     t.is(await sa([]), `__EMPTY__`);
@@ -255,7 +255,7 @@ function testSpawnNest() {
   const title = `spawn nest @${platform()}`;
   const c = wCommand;
   const sc = spawnCommand(spawnOpts);
-  const tsa = test;
+  const tsa = test.serial;
 
   function ntsa(tag: string, target: readonly string[], expect: string) {
     const bc = c([q(nodeBin), q(showArgsFile), ...target]);
@@ -303,7 +303,7 @@ function testSpawnCmdletNest() {
   const title = `spawn nest @${platform()}`;
   const c = wCommand;
   const sc = spawnCommand(spawnOpts);
-  const tsa = test;
+  const tsa = test.serial;
 
   function ntsa(tag: string, target: readonly string[], expect: string) {
     const bc = c(target);
