@@ -6,7 +6,7 @@ import {
   emptyElementNotAllowedMessage,
   validateNotEmpty,
   executable,
-} from '../lib/xcommand.mjs';
+} from '../lib/xcommand.js';
 
 test('validateNotEmpty', (t) => {
   t.throws(

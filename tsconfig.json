@@ -4,8 +4,8 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "target": "ES2020",
-    "module": "node12",
-    "moduleResolution": "node12",
+    "module": "ES2020",
+    "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "sourceMap": true,
@@ -14,5 +14,5 @@
     "rootDir": "./src",
     "outDir": "./lib"
   },
-  "include": ["./src/**/*.mts"]
+  "include": ["./src/**/*.ts"]
 }

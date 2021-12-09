@@ -4,9 +4,9 @@ import test from 'ava';
 
 import { platform } from 'os';
 
-import { quote as q } from '../lib/warg.mjs';
+import { quote as q } from '../lib/warg.js';
 
-import { nodeBin, showArgsFile, spawnCommand } from './mock_spawn.js';
+import { nodeBin, showArgsFile, spawnCommand } from './helper.js';
 
 const isWin = platform() === 'win32';
 

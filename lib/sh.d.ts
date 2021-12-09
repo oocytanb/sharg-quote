@@ -1,5 +1,5 @@
 /*! SPDX-License-Identifier: MIT */
-import { Command } from './xcommand.mjs';
+import { Command } from './xcommand.js';
 /**
  * @internal
  */

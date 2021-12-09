@@ -33,22 +33,13 @@ jobs:
       - name: Install packages
         run: pnpm i
 
-      - name: Build & Test (bash)
-        shell: bash
-        run: pnpm run build_c
-
-      - name: Build & Test (pwsh)
-        shell: pwsh
-        run: pnpm run build_c
-
-      - name: Build & Test (cmd)
+      - name: Build (cmd)
         if: matrix.os == 'windows-latest'
         shell: cmd
-        run: pnpm run build_c
+        run: pnpm -r --workspace-concurrency=1 run build
 
-      - name: Build & Test examples
-        working-directory: example
-        run: |
-          pnpm i
-          pnpm run build
-          pnpm run test
+      - name: Build
+        run: pnpm -r --workspace-concurrency=1 run build
+
+      - name: Test
+        run: pnpm -r run test_c

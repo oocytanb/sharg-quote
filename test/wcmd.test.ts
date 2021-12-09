@@ -2,9 +2,9 @@
 
 import test from 'ava';
 
-import { constant } from '../lib/fun.mjs';
+import { constant } from '../lib/fun.js';
 
-import { emptyElementNotAllowedMessage } from '../lib/xcommand.mjs';
+import { emptyElementNotAllowedMessage } from '../lib/xcommand.js';
 
 import {
   escape as esc,
@@ -13,7 +13,7 @@ import {
   shell,
   customCommand,
   wCommand as c,
-} from '../lib/wcmd.mjs';
+} from '../lib/wcmd.js';
 
 test(`escape`, (t) => {
   t.is(esc(``), ``);

@@ -6,7 +6,7 @@ import { Buffer } from 'buffer';
 import { platform, EOL } from 'os';
 import { spawnSync } from 'child_process';
 
-import { fun, xarg, xcommand, warg, wcmd, pwsh, sh } from '../lib/index.mjs';
+import { fun, xarg, xcommand, warg, wcmd, pwsh, sh } from '../lib/index.js';
 
 const isWin = platform() === 'win32';
 
@@ -70,7 +70,7 @@ if (isWin) {
 
     const [cmd, args] = c([
       q(`node`),
-      q(`test/res/show_args.mjs`),
+      q(`test/res/show_args.js`),
       q(`foo`),
       q(`bar " ' baz`),
     ]);
@@ -113,7 +113,7 @@ if (isWin) {
 
     const [cmd, args] = c([
       q(`node`),
-      wq(`test/res/show_args.mjs`),
+      wq(`test/res/show_args.js`),
       wq(`foo`),
       wq(`bar " ' baz`),
     ]);
@@ -152,7 +152,7 @@ if (!isWin) {
 
     const [cmd, args] = c([
       q(`node`),
-      q(`test/res/show_args.mjs`),
+      q(`test/res/show_args.js`),
       q(`foo`),
       q(`bar " ' baz`),
     ]);

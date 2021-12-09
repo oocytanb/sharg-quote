@@ -2,7 +2,7 @@
 
 import test from 'ava';
 
-import { concat, empty } from '../lib/xarg.mjs';
+import { concat, empty } from '../lib/xarg.js';
 
 test('concat', (t) => {
   t.is(empty, '');

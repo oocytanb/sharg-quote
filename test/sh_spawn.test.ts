@@ -9,8 +9,8 @@ import { basename, extname, join, normalize } from 'path';
 import upath from 'upath';
 import semver from 'semver';
 
-import { constant } from '../lib/fun.mjs';
-import { Command } from '../lib/xcommand.mjs';
+import { constant } from '../lib/fun.js';
+import { Command } from '../lib/xcommand.js';
 
 import {
   quote as q,
@@ -18,7 +18,7 @@ import {
   pShellCommand,
   wShellCommand,
   command,
-} from '../lib/sh.mjs';
+} from '../lib/sh.js';
 
 import {
   nodeBin,
@@ -28,7 +28,7 @@ import {
   asyncSpawn,
   spawnCommand,
   makeConditionalTest,
-} from './mock_spawn.js';
+} from './helper.js';
 
 type CommandBuilder = (args: readonly string[]) => Command;
 

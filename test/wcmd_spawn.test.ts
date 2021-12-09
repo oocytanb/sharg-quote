@@ -7,7 +7,7 @@ import { join } from 'path';
 
 import semver from 'semver';
 
-import { constant } from '../lib/fun.mjs';
+import { constant } from '../lib/fun.js';
 
 import {
   escape as esc,
@@ -15,7 +15,7 @@ import {
   shell,
   customCommand,
   wCommand,
-} from '../lib/wcmd.mjs';
+} from '../lib/wcmd.js';
 
 import {
   nodeBin,
@@ -23,7 +23,7 @@ import {
   testResDir,
   testDataDir,
   spawnCommand,
-} from './mock_spawn.js';
+} from './helper.js';
 
 const isWin = platform() === 'win32';
 

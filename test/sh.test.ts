@@ -2,8 +2,8 @@
 
 import test from 'ava';
 
-import { constant } from '../lib/fun.mjs';
-import { Command, emptyElementNotAllowedMessage } from '../lib/xcommand.mjs';
+import { constant } from '../lib/fun.js';
+import { Command, emptyElementNotAllowedMessage } from '../lib/xcommand.js';
 
 import {
   customQuote,
@@ -13,7 +13,7 @@ import {
   pShellCommand,
   wShellCommand,
   command,
-} from '../lib/sh.mjs';
+} from '../lib/sh.js';
 
 test('customQuote', (t) => {
   const cq = customQuote(constant(true));

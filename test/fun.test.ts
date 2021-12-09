@@ -2,7 +2,7 @@
 
 import test from 'ava';
 
-import { identity, constant } from '../lib/fun.mjs';
+import { identity, constant } from '../lib/fun.js';
 
 test('identity', (t) => {
   t.is(identity(undefined), undefined);

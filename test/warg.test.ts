@@ -2,8 +2,8 @@
 
 import test from 'ava';
 
-import { constant } from '../lib/fun.mjs';
-import { customQuote, quote as q } from '../lib/warg.mjs';
+import { constant } from '../lib/fun.js';
+import { customQuote, quote as q } from '../lib/warg.js';
 
 test('customQuote', (t) => {
   const cq = customQuote(constant(true));

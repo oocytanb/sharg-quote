@@ -7,9 +7,9 @@ import { basename, join } from 'path';
 
 import semver from 'semver';
 
-import { identity, constant } from '../lib/fun.mjs';
-import { Command } from '../lib/xcommand.mjs';
-import { quote as wargQuote } from '../lib/warg.mjs';
+import { identity, constant } from '../lib/fun.js';
+import { Command } from '../lib/xcommand.js';
+import { quote as wargQuote } from '../lib/warg.js';
 
 import {
   quote as q,
@@ -18,7 +18,7 @@ import {
   customCommand,
   command,
   wCommand,
-} from '../lib/pwsh.mjs';
+} from '../lib/pwsh.js';
 
 import {
   nodeBin,
@@ -28,7 +28,7 @@ import {
   asyncSpawn,
   spawnCommand,
   makeConditionalTest,
-} from './mock_spawn.js';
+} from './helper.js';
 
 type CommandBuilder = (args: readonly string[]) => Command;
 

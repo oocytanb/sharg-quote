@@ -25,7 +25,7 @@ function run() {
 
   const [cmd, args] = c([
     q(`node`),
-    q(`test/res/show_args.mjs`),
+    q(`test/res/show_args.js`),
     q(`foo`),
     q(`bar " ' baz`),
   ]);
@@ -67,7 +67,7 @@ function run() {
 
   const [cmd, args] = c([
     q(`node`),
-    wq(`test/res/show_args.mjs`),
+    wq(`test/res/show_args.js`),
     wq(`foo`),
     wq(`bar " ' baz`),
   ]);
@@ -104,7 +104,7 @@ function run() {
 
   const [cmd, args] = c([
     q(`node`),
-    q(`test/res/show_args.mjs`),
+    q(`test/res/show_args.js`),
     q(`foo`),
     q(`bar " ' baz`),
   ]);
