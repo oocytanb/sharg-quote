@@ -132,6 +132,23 @@ function run() {
 
 ### [More examples](./test/)
 
+## Build
+
+Install [pnpm](https://pnpm.io/)
+
+```
+corepack enable pnpm
+corepack prepare pnpm@6.23.6 --activate
+```
+
+Build
+
+```
+pnpm i
+pnpm run build
+pnpm run test_c
+```
+
 ## Libraries
 
 [See dependencies](./package.json)
