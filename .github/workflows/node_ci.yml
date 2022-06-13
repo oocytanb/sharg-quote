@@ -36,10 +36,14 @@ jobs:
       - name: Build (cmd)
         if: matrix.os == 'windows-latest'
         shell: cmd
-        run: pnpm -r --workspace-concurrency=1 run build
+        run: |
+          pnpm run build
+          pnpm -r run build
 
       - name: Build
-        run: pnpm -r --workspace-concurrency=1 run build
+        run: |
+          pnpm run build
+          pnpm -r run build
 
       - uses: actions/github-script@v5
         with:
@@ -55,4 +59,6 @@ jobs:
             }
 
       - name: Test
-        run: pnpm -r run test_c
+        run: |
+          pnpm run test_c
+          pnpm -r run test_c
