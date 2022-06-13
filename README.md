@@ -138,7 +138,7 @@ Install [pnpm](https://pnpm.io/)
 
 ```
 corepack enable pnpm
-corepack prepare pnpm@6.23.6 --activate
+corepack prepare pnpm@7.2.1 --activate
 ```
 
 Build
