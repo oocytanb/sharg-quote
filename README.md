@@ -6,7 +6,7 @@ A Node library for quoting/escaping shell commands.
 
 ## Installation
 
-[Node.js](https://nodejs.org/) >= 16
+[Node.js](https://nodejs.org/) >= 18
 
 ```
 npm i github:oocytanb/sharg-quote
@@ -138,7 +138,7 @@ Install [pnpm](https://pnpm.io/)
 
 ```
 corepack enable pnpm
-corepack prepare pnpm@7.2.1 --activate
+corepack prepare pnpm@7.11.0 --activate
 ```
 
 Build
